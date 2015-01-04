@@ -1,0 +1,34 @@
+{
+  "name": "match-patterns",
+  "version": "0.0.0",
+  "description": "Match a string against a list of patterns",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "match",
+    "matcher",
+    "pattern",
+    "regex",
+    "regexp",
+    "route",
+    "router"
+  ],
+  "author": "Thomas Watson Steen <w@tson.dk>",
+  "license": "MIT",
+  "dependencies": {
+    "murl": "^0.4.1"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/watson/match-patterns.git"
+  },
+  "bugs": {
+    "url": "https://github.com/watson/match-patterns/issues"
+  },
+  "homepage": "https://github.com/watson/match-patterns"
+}
