@@ -1,6 +1,6 @@
 {
   "name": "match-patterns",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Match a string against a list of patterns",
   "main": "index.js",
   "scripts": {
