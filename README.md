@@ -71,8 +71,8 @@ first match. If no pattern matches `null` is returned.
   params: {                 // the named parameters from the pattern
     id: '...'
   },
-  value: callback,          // the value (2nd argument to `.add()` function)
-  next: fn                  // function to skip this match and continue
+  value: value,             // the value (2nd argument to `.add()` function)
+  next: function () {...}   // function to skip this match and continue
 }
 ```
 
