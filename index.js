@@ -8,8 +8,15 @@ var Patterns = module.exports = function (patterns) {
   this._patterns = patterns || [];
 };
 
+var compile = function (ptn) {
+  if (typeof ptn === 'string') return murl(ptn);
+  return function (str) {
+    return str.match(ptn);
+  };
+};
+
 Patterns.prototype.add = function (ptn, val) {
-  this._patterns.push([ptn, val]);
+  this._patterns.push([compile(ptn), ptn, val]);
 };
 
 Patterns.prototype.match = function (target, index) {
@@ -20,13 +27,13 @@ Patterns.prototype.match = function (target, index) {
   var ptn, match;
   if (!index) index = 0;
   for (var l = this._patterns.length; index < l; index++) {
-    ptn = this._patterns[index][0];
-    match = typeof ptn === 'string' ? murl(ptn)(target) : target.match(ptn);
+    ptn = this._patterns[index];
+    match = ptn[0](target);
     if (match) return {
       target: target,
-      pattern: ptn,
+      pattern: ptn[1],
       params: match,
-      value: this._patterns[index][1],
+      value: ptn[2],
       next: next
     };
   }
