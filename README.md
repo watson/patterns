@@ -67,7 +67,7 @@ first match. If no pattern matches `null` is returned.
 ```js
 {
   pattern: 'GET /foo/{id}', // the matched pattern (1st argument to `.add()` function)
-  target: 'GET /foo/bar/',  // the target string
+  target: 'GET /foo/bar',   // the target string
   params: {                 // the named parameters from the pattern
     id: '...'
   },
