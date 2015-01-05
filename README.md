@@ -79,6 +79,27 @@ first match. If no pattern matches `null` is returned.
 Note that if the pattern is a RegExp object, `params` will be the result
 of the native `<str>.match(<ptn>)` function (an array).
 
+#### The next-function
+
+The `match.next` function can be used to skip the found match and
+continue matching the string against the patterns:
+
+```js
+patterns.add(/foo/, 1);
+patterns.add(/baz/, 2);
+patterns.add(/bar/, 3);
+
+var values = [];
+
+var match = patterns.match('foobar');
+while (match) {
+  values.push(match.value);
+  match = match.next();
+}
+
+console.log(values); // [1, 3]
+```
+
 ## License
 
 MIT
