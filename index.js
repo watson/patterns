@@ -5,7 +5,9 @@ var murl = require('murl');
 var Patterns = module.exports = function (patterns) {
   if (!(this instanceof Patterns))
     return new Patterns(patterns);
-  this._patterns = patterns || [];
+  this._patterns = (patterns || []).map(function (ptn) {
+    return [compile(ptn), ptn, undefined];
+  });
 };
 
 var compile = function (ptn) {
