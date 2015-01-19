@@ -77,7 +77,7 @@ first match. If no pattern matches `null` is returned.
   pattern: '/Users/{name}', // the matched pattern (1st argument to `.add()` function)
   target: '/Users/watson',  // the target string
   params: {                 // the named parameters from the pattern
-    name: '...'
+    name: 'watson'
   },
   value: value,             // the value (2nd argument to `.add()` function)
   next: function () {...}   // function to skip this match and continue
