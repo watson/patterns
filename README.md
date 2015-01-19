@@ -1,13 +1,19 @@
-# match-patterns
+# patterns
 
 Match a string against a list of patterns.
 
-[![build status](https://secure.travis-ci.org/watson/match-patterns.png)](http://travis-ci.org/watson/match-patterns)
+[![build status](https://secure.travis-ci.org/watson/patterns.png)](http://travis-ci.org/watson/patterns)
+
+*The name of this module was previosuly `match-patterns`, but [Pavel
+Lang](https://github.com/langpavel) have been generous to give me the
+`patterns` name on NPM. If you are looking for the previous module it
+have been renamed
+[design-patterns](https://www.npmjs.com/package/design-patterns).*
 
 ## Installation
 
 ```
-npm install match-patterns
+npm install patterns
 ```
 
 ## Example usage
@@ -15,7 +21,7 @@ npm install match-patterns
 Add patterns using the `.add()` function:
 
 ```js
-var patterns = require('match-patterns')();
+var patterns = require('patterns')();
 
 patterns.add('mathias', 'foo'); // a pattern can be a string
 patterns.add(/(tom|thomas)/, 'bar'); // or a RegExp object
@@ -104,12 +110,12 @@ console.log(values); // [1, 3]
 
 ## Example: A complete HTTP router
 
-In this example the match-patterns module it's used as a simple but
-powerful HTTP route matcher:
+In this example the patterns module it's used as a simple but powerful
+HTTP route matcher:
 
 ```js
 var http = require('http');
-var patterns = require('match-patterns')();
+var patterns = require('patterns')();
 
 patterns.add('GET /foo', fn1);
 patterns.add('GET /foo/{id}', fn2);

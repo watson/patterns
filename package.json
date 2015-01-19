@@ -1,5 +1,5 @@
 {
-  "name": "match-patterns",
+  "name": "patterns",
   "version": "1.0.1",
   "description": "Match a string against a list of patterns",
   "main": "index.js",
@@ -25,10 +25,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/watson/match-patterns.git"
+    "url": "https://github.com/watson/patterns.git"
   },
   "bugs": {
-    "url": "https://github.com/watson/match-patterns/issues"
+    "url": "https://github.com/watson/patterns/issues"
   },
-  "homepage": "https://github.com/watson/match-patterns"
+  "homepage": "https://github.com/watson/patterns"
 }
