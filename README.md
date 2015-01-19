@@ -1,3 +1,7 @@
+# DEPRECATION WARNING
+
+**This module have been renamed to [patterns](https://www.npmjs.com/package/patterns) and you should use that instead!**
+
 # match-patterns
 
 Match a string against a list of patterns.

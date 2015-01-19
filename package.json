@@ -1,7 +1,7 @@
 {
   "name": "match-patterns",
-  "version": "1.0.1",
-  "description": "Match a string against a list of patterns",
+  "version": "2.0.0-deprecated",
+  "description": "Match a string against a list of patterns (deprecated)",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
