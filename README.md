@@ -12,31 +12,33 @@ npm install match-patterns
 
 ## Example usage
 
-Even though this module is a generic pattern matcher, it's well suited
-for HTTP route matching:
+Add patterns using the `.add()` function:
 
 ```js
-var http = require('http');
 var patterns = require('match-patterns')();
 
-patterns.add('GET /foo', fn1);
-patterns.add('GET /foo/{id}', fn2);
-patterns.add('POST /foo/{id}', fn3);
+patterns.add('mathias', 'foo'); // a pattern can be a string
+patterns.add(/(tom|thomas)/, 'bar'); // or a RegExp object
+patterns.add('anders', 'baz');
 
-http.createServer(function (req, res) {
-  var match = patterns.match(req.method + ' ' + req.url);
+var match = patterns.match('thomas');
 
-  if (!match) {
-    req.writeHead(404);
-    req.end();
-    return;
-  }
+if (match) console.log(match.value); // outputs 'bar'
+```
 
-  var fn = match.value;
-  req.params = match.params;
+The module can also be seeded with an array of patterns if you don't
+care about a 2nd argument that you can supply to the `.add()` function:
 
-  fn(req, res);
-}).listen(8080);
+```js
+var patterns = require('patterns')([
+  /foo/,
+  /bar/,
+  /baz/
+]);
+
+if (patterns.match('foobar')) {
+  console.log('success!');
+}
 ```
 
 ## API
@@ -47,7 +49,7 @@ Arguments:
 
 - `pattern` - The pattern as either a string or a RegExp object
 - `value` (optional) - Returned as part of the match object when calling
-  the `.match()` method. Can be of any type
+  the `.match()` function. Can be of any type
 
 If the `pattern` is a string it will be matched using the
 [murl](https://github.com/mafintosh/murl) module. If the `pattern` is a
@@ -66,10 +68,10 @@ first match. If no pattern matches `null` is returned.
 
 ```js
 {
-  pattern: 'GET /foo/{id}', // the matched pattern (1st argument to `.add()` function)
-  target: 'GET /foo/bar',   // the target string
+  pattern: '/Users/{name}', // the matched pattern (1st argument to `.add()` function)
+  target: '/Users/watson',  // the target string
   params: {                 // the named parameters from the pattern
-    id: '...'
+    name: '...'
   },
   value: value,             // the value (2nd argument to `.add()` function)
   next: function () {...}   // function to skip this match and continue
@@ -98,6 +100,35 @@ while (match) {
 }
 
 console.log(values); // [1, 3]
+```
+
+## Example: A complete HTTP router
+
+In this example the match-patterns module it's used as a simple but
+powerful HTTP route matcher:
+
+```js
+var http = require('http');
+var patterns = require('match-patterns')();
+
+patterns.add('GET /foo', fn1);
+patterns.add('GET /foo/{id}', fn2);
+patterns.add('POST /foo/{id}', fn3);
+
+http.createServer(function (req, res) {
+  var match = patterns.match(req.method + ' ' + req.url);
+
+  if (!match) {
+    req.writeHead(404);
+    req.end();
+    return;
+  }
+
+  var fn = match.value; // expects the value to be a function
+  req.params = match.params;
+
+  fn(req, res);
+}).listen(8080);
 ```
 
 ## License
