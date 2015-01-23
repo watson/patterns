@@ -125,8 +125,8 @@ http.createServer(function (req, res) {
   var match = patterns.match(req.method + ' ' + req.url);
 
   if (!match) {
-    req.writeHead(404);
-    req.end();
+    res.writeHead(404);
+    res.end();
     return;
   }
 
