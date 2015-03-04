@@ -41,3 +41,20 @@ Patterns.prototype.match = function (target, index) {
   }
   return null;
 };
+
+Patterns.prototype.matchAll = function(target) {
+  var matches = [];
+  var ptn, match;
+  for (var i = 0; i < this._patterns.length; i++) {
+     ptn = this._patterns[i]
+     match = ptn[0](target);
+     if (match) matches.push({
+       target: target,
+       pattern: ptn[1],
+       params: match,
+       value: ptn[2]
+     });
+  }
+
+  return matches;
+};

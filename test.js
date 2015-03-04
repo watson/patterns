@@ -72,3 +72,17 @@ test('last next function', function (t) {
   t.equal(match, null);
   t.end();
 });
+
+test('matchAll', function (t) {
+  var p = Patterns();
+  p.add(/foo/, 1);
+  p.add(/foo/, 2);
+  p.add(/foo/, 3);
+  var matches = p.matchAll('foo');
+  t.deepEqual(matches[0].value, 1);
+  t.deepEqual(matches[1].value, 2);
+  t.deepEqual(matches[2].value, 3);
+  t.end();
+});
+
+
