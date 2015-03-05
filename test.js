@@ -79,9 +79,9 @@ test('matchAll', function (t) {
   p.add(/foo/, 2);
   p.add(/foo/, 3);
   var matches = p.matchAll('foo');
-  t.deepEqual(matches[0].value, 1);
-  t.deepEqual(matches[1].value, 2);
-  t.deepEqual(matches[2].value, 3);
+  t.equal(matches[0].value, 1);
+  t.equal(matches[1].value, 2);
+  t.equal(matches[2].value, 3);
   t.end();
 });
 
