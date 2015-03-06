@@ -70,6 +70,15 @@ Arguments:
 Runs through each pattern in order and returns a match object for the
 first match. If no pattern matches `null` is returned.
 
+### `patterns.matchAll(target)`
+
+Arguments
+
+- `target` - The string that should be matched against each pattern
+
+Runs through each pattern in order and returns an array of match objects.
+If no pattern matches, an empty array is returned.
+
 #### Example match object
 
 ```js
