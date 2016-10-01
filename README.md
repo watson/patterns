@@ -119,7 +119,7 @@ console.log(values); // [1, 3]
 
 ## Example: A complete HTTP router
 
-In this example the patterns module it's used as a simple but powerful
+In this example the patterns module is used as a simple but powerful
 HTTP route matcher:
 
 ```js
