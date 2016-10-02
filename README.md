@@ -22,15 +22,15 @@ npm install patterns
 Add patterns using the `.add()` function:
 
 ```js
-var patterns = require('patterns')();
+var patterns = require('patterns')()
 
-patterns.add('mathias', 'foo'); // a pattern can be a string
-patterns.add(/(tom|thomas)/, 'bar'); // or a RegExp object
-patterns.add('anders', 'baz');
+patterns.add('mathias', 'foo') // a pattern can be a string
+patterns.add(/(tom|thomas)/, 'bar') // or a RegExp object
+patterns.add('anders', 'baz')
 
-var match = patterns.match('thomas');
+var match = patterns.match('thomas')
 
-if (match) console.log(match.value); // outputs 'bar'
+if (match) console.log(match.value) // outputs 'bar'
 ```
 
 The module can also be seeded with an array of patterns if you don't
@@ -41,10 +41,10 @@ var patterns = require('patterns')([
   /foo/,
   /bar/,
   /baz/
-]);
+])
 
 if (patterns.match('foobar')) {
-  console.log('success!');
+  console.log('success!')
 }
 ```
 
@@ -103,19 +103,19 @@ The `match.next` function can be used to skip the found match and
 continue matching the string against the patterns:
 
 ```js
-patterns.add(/foo/, 1);
-patterns.add(/baz/, 2);
-patterns.add(/bar/, 3);
+patterns.add(/foo/, 1)
+patterns.add(/baz/, 2)
+patterns.add(/bar/, 3)
 
-var values = [];
+var values = []
 
-var match = patterns.match('foobar');
+var match = patterns.match('foobar')
 while (match) {
-  values.push(match.value);
-  match = match.next();
+  values.push(match.value)
+  match = match.next()
 }
 
-console.log(values); // [1, 3]
+console.log(values) // [1, 3]
 ```
 
 ## Example: A complete HTTP router
@@ -124,29 +124,29 @@ In this example the patterns module is used as a simple but powerful
 HTTP route matcher:
 
 ```js
-var http = require('http');
-var url = require('url');
-var patterns = require('patterns')();
+var http = require('http')
+var url = require('url')
+var patterns = require('patterns')()
 
-patterns.add('GET /foo', fn1);
-patterns.add('GET /foo/{id}', fn2);
-patterns.add('POST /foo/{id}', fn3);
+patterns.add('GET /foo', fn1)
+patterns.add('GET /foo/{id}', fn2)
+patterns.add('POST /foo/{id}', fn3)
 
 http.createServer(function (req, res) {
   var path = url.parse(req.url).pathname
-  var match = patterns.match(req.method + ' ' + path);
+  var match = patterns.match(req.method + ' ' + path)
 
   if (!match) {
-    res.writeHead(404);
-    res.end();
-    return;
+    res.writeHead(404)
+    res.end()
+    return
   }
 
-  var fn = match.value; // expects the value to be a function
-  req.params = match.params;
+  var fn = match.value // expects the value to be a function
+  req.params = match.params
 
-  fn(req, res);
-}).listen(8080);
+  fn(req, res)
+}).listen(8080)
 ```
 
 ## License
