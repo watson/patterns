@@ -4,7 +4,7 @@
   "description": "Match a string against a list of patterns",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "standard && node test.js"
   },
   "keywords": [
     "match",
@@ -21,6 +21,7 @@
     "murl": "^0.4.1"
   },
   "devDependencies": {
+    "standard": "^8.3.0",
     "tape": "^3.0.3"
   },
   "repository": {

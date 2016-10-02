@@ -3,6 +3,7 @@
 Match a string against a list of patterns.
 
 [![build status](https://secure.travis-ci.org/watson/patterns.png)](http://travis-ci.org/watson/patterns)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 *The name of this module was previosuly `match-patterns`, but [Pavel
 Lang](https://github.com/langpavel) have been generous to give me the
