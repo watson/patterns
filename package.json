@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "standard": "^8.3.0",
-    "tape": "^3.0.3"
+    "tape": "^4.6.2"
   },
   "repository": {
     "type": "git",
