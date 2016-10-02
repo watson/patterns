@@ -1,6 +1,6 @@
 {
   "name": "patterns",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Match a string against a list of patterns",
   "main": "index.js",
   "scripts": {
@@ -31,5 +31,9 @@
   "bugs": {
     "url": "https://github.com/watson/patterns/issues"
   },
-  "homepage": "https://github.com/watson/patterns"
+  "homepage": "https://github.com/watson/patterns",
+  "coordinates": [
+    55.6875127,
+    12.595903
+  ]
 }
