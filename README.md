@@ -119,11 +119,12 @@ console.log(values); // [1, 3]
 
 ## Example: A complete HTTP router
 
-In this example the patterns module it's used as a simple but powerful
+In this example the patterns module is used as a simple but powerful
 HTTP route matcher:
 
 ```js
 var http = require('http');
+var url = require('url');
 var patterns = require('patterns')();
 
 patterns.add('GET /foo', fn1);
@@ -131,7 +132,8 @@ patterns.add('GET /foo/{id}', fn2);
 patterns.add('POST /foo/{id}', fn3);
 
 http.createServer(function (req, res) {
-  var match = patterns.match(req.method + ' ' + req.url);
+  var path = url.parse(req.url).pathname
+  var match = patterns.match(req.method + ' ' + path);
 
   if (!match) {
     res.writeHead(404);
